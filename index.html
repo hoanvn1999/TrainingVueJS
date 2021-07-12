@@ -25,18 +25,10 @@
         <div class="col-5 mx-auto font-weight-bold">Task</div>
         <div class="col-2 mx-auto font-weight-bold">Done</div>
       </div>
-      <div v-for="(task, index) in tasks" v-bind:key="index">
-        <div class="row" v-if="!task.done">
+      <div v-for="(task, index) in tasks" :key="index">
+        <div class="row" :style="index%2 ? 'background-color: rgb(224, 224, 224)' : ''">
           <div class="col-1 mx-auto">{{ index + 1 }}</div>
-          <img class="col-1 mx-auto img-fluid" src="https://pbs.twimg.com/profile_images/1245425709666816000/gkb8QvTW.jpg">
-          <div class="col-5 mx-auto">{{ task.action }}</div>
-          <div class="col-2 mx-auto">{{ task.done }}</div>
-        </div>
-      </div>
-      <div v-for="(task, index) in tasks" v-bind:key="index">
-        <div class="row" v-show="task.done">
-          <div class="col-1 mx-auto">{{ index + 1 }}</div>
-          <img class="col-1 mx-auto img-fluid" src="https://pbs.twimg.com/profile_images/1245425709666816000/gkb8QvTW.jpg">
+          <img class="col-1 mx-auto img-fluid" :src="task.image_link">
           <div class="col-5 mx-auto">{{ task.action }}</div>
           <div class="col-2 mx-auto">{{ task.done }}</div>
         </div>
